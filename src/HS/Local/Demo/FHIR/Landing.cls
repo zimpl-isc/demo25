@@ -1,6 +1,15 @@
 Class HS.Local.Demo.FHIR.Landing Extends %CSP.Page
 {
 
+/// ----------------------------------------------------------------------------
+/// Demo Example for InterSystems IRIS for Health
+/// 
+/// This class is part of the "Von FHIR zur Insight" demo set.
+/// It is intended for demonstration and educational purposes only.
+/// 
+/// ⚠️ Not production-ready. Do not use with real patient data.
+/// All datasets used are synthetic.
+/// ----------------------------------------------------------------------------
 ClassMethod OnPage() As %Status
 {
   &html<<!doctype html><html><head><meta charset="utf-8">
@@ -14,37 +23,43 @@ ClassMethod OnPage() As %Status
         "title": "Management Portal",
         "desc": "",
         "href": "/EnsPortal.ProductionConfig.zen?PRODUCTION=STAGINGPKG.FoundationProduction",
-        "tags": ["Patient","Dashboard","Allgemein"]
+        "tags": ["Dashboard","Allgemein"]
       },
       {
         "title": "Patient Dashboard",
         "desc": "Übersicht Patient, Vitals, Conditions, Meds, Allergien, Encounters, Observations.",
         "href": "/HS.Local.Demo.FHIR.PatientCard.cls?id=2",
-        "tags": ["Patient","Dashboard","Allgemein"]
+        "tags": ["NoLib","Patient","Dashboard","Allgemein"]
       },
       {
         "title": "Blutdruck-Trend",
         "desc": "Zeitliche Entwicklung von Systole/Diastole (LOINC 55284-4).",
         "href": "/HS.Local.Demo.FHIR.BPTrend.cls?id=2",
-        "tags": ["Observation","Vitals","Chart"]
+        "tags": ["Lib","Observation","Vitals","Chart"]
       },
       {
         "title": "Referenz-Graph",
         "desc": "Ressourcen-Referenzen im Bundle als Netzwerk (vis.js).",
         "href": "/HS.Local.Demo.FHIR.RefGraph.cls?id=2",
-        "tags": ["Graph","Bundle","Navigation"]
+        "tags": ["Lib","Graph","Bundle","Navigation"]
       },
       {
         "title": "JSON Tree",
         "desc": "FHIR-Bundle als aufklappbarer Baum (details/summary).",
         "href": "/HS.Local.Demo.FHIR.TreeView.cls?p=Patient/2/$everything&_count=100",
-        "tags": ["Bundle","Inhalt","Debug"]
+        "tags": ["NoLib","Bundle","Inhalt","Debug"]
       },
       {
         "title": "Medikationsverlauf",
         "desc": "MedicationStatement zeitlich sortiert als einfache Liste.",
         "href": "/HS.Local.Demo.FHIR.MedsTimeline.cls?id=2",
-        "tags": ["Medication","Timeline"]
+        "tags": ["NoLib","Medication","Timeline"]
+      },
+      {
+        "title": "Timeline",
+        "desc": "MedicationStatement zeitlich sortiert als einfache Liste.",
+        "href": "/HS.Local.Demo.FHIR.Timeline.cls?id=2",
+        "tags": ["Lib","Timeline"]
       }
     ]
   }
@@ -63,12 +78,30 @@ ClassMethod OnPage() As %Status
     .controls input{padding:8px 10px;border:1px solid var(--b);border-radius:8px;min-width:260px}
     .controls select{padding:8px 10px;border:1px solid var(--b);border-radius:8px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-    .card{border:1px solid var(--b);border-radius:12px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:8px}
     .card h3{margin:0;font-size:16px}
     .desc{font-size:13px;color:#333}
     .tags{display:flex;flex-wrap:wrap;gap:6px}
     .tag{font-size:11px;color:#444;border:1px solid var(--b);border-radius:999px;padding:2px 8px;background:#fafafa}
-    .links{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+    /* Card: keep normal flow for content, reserve bottom space for the button */
+    .card{
+    border:1px solid var(--b);
+    border-radius:12px;
+    padding:14px 14px 58px;   /* ⬅ bottom padding reserves space for the button */
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    position:relative;        /* ⬅ anchor for absolute button */
+    /* remove any justify-content:space-between from earlier */
+    }
+
+    /* Button wrapper pinned to bottom-right */
+    .links{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    /* no margins needed; it won’t affect layout of content/tags */
+    }
     .btn{display:inline-block;font-size:13px;border:1px solid var(--b);border-radius:8px;padding:6px 10px;background:#f7f7f7;text-decoration:none;color:#111}
     .foot{margin-top:8px;font-size:12px;color:var(--m)}
     .sep{height:1px;background:var(--b);margin:10px 0}
@@ -163,7 +196,7 @@ ClassMethod OnPage() As %Status
     render();
   })();
   </script>
-
+    #(##class(HS.Local.Demo.FHIR.Utils).Footer())#
   </body></html>>
   Quit $$$OK
 }

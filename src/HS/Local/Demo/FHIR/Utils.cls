@@ -1,6 +1,16 @@
+/// ----------------------------------------------------------------------------
+/// Demo Example for InterSystems IRIS for Health
+/// 
+/// This class is part of the "Von FHIR zur Insight" demo set.
+/// It is intended for demonstration and educational purposes only.
+/// 
+/// ⚠️ Not production-ready. Do not use with real patient data.
+/// All datasets used are synthetic.
+/// ----------------------------------------------------------------------------
 Class HS.Local.Demo.FHIR.Utils Extends %CSP.Page
 {
 
+/// Instanzname vom FHIR Repository
 Parameter FhirRepo = "/csp/healthshare/staging/fhir/r4";
 
 ClassMethod UrlParam(pName As %String, pDefault As %String = "") As %String
@@ -61,6 +71,15 @@ ClassMethod GetFHIR(pPath = "/Observation", pQueryString = "", Output pResponse 
 
 
     return $$$OK
+}
+
+ClassMethod Footer()
+{
+    &html<<footer style="font-size:12px;color:#777;margin-top:20px;text-align:center;width:100%;">
+  Demo-System · Synthetische Daten · Nicht für produktiven Gebrauch
+    </footer>>
+
+    return ""
 }
 
 }

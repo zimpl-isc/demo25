@@ -1,3 +1,12 @@
+/// ----------------------------------------------------------------------------
+/// Demo Example for InterSystems IRIS for Health
+/// 
+/// This class is part of the "Von FHIR zur Insight" demo set.
+/// It is intended for demonstration and educational purposes only.
+/// 
+/// ⚠️ Not production-ready. Do not use with real patient data.
+/// All datasets used are synthetic.
+/// ----------------------------------------------------------------------------
 Class HS.Local.Demo.FHIR.MedsTimeline Extends %CSP.Page
 {
 
@@ -47,6 +56,7 @@ ClassMethod OnPage() As %Status
     }
   })();
   </script>
+  #(##class(HS.Local.Demo.FHIR.Utils).Footer())#
   </body></html>>
   Quit $$$OK
 }

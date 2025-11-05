@@ -1,0 +1,415 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:4c6b5af0-9a8c-4b9d-9d5a-111111111111",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P001" }],
+        "name": [{ "family": "Silie", "given": ["Peter"] }],
+        "gender": "male",
+        "birthDate": "1972-06-11"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:753b2d3c-2c0e-4d5a-9d5a-222222222222",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P002" }],
+        "name": [{ "family": "Bogen", "given": ["Ellen"] }],
+        "gender": "female",
+        "birthDate": "1965-03-04"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:0a7c6bb2-0a2a-4a98-9b0f-333333333333",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P003" }],
+        "name": [{ "family": "Tenne", "given": ["Anne"] }],
+        "gender": "female",
+        "birthDate": "1978-09-22"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:9f3f1b79-c4c2-4e8a-9d1e-444444444444",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P004" }],
+        "name": [{ "family": "Melade", "given": ["Mara"] }],
+        "gender": "female",
+        "birthDate": "1988-01-14"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:e0a8d6c2-4f0f-4a14-9f2a-555555555555",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P005" }],
+        "name": [{ "family": "Mal", "given": ["Nora"] }],
+        "gender": "female",
+        "birthDate": "1971-11-09"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:5a1d9a2c-8b6b-4a3d-8a7e-666666666666",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P006" }],
+        "name": [{ "family": "Zufall", "given": ["Reiner"] }],
+        "gender": "male",
+        "birthDate": "1959-02-18"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:2f1c3e6d-3a5b-4a7f-8d9e-777777777777",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P007" }],
+        "name": [{ "family": "Retisch", "given": ["Theo"] }],
+        "gender": "male",
+        "birthDate": "1967-08-02"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:1b9a6c2d-7a0c-4e9f-9b8e-888888888888",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [{ "system": "http://hospital.demo/pat", "value": "P008" }],
+        "name": [{ "family": "Logie", "given": ["Anna"] }],
+        "gender": "female",
+        "birthDate": "1992-12-28"
+      },
+      "request": { "method": "POST", "url": "Patient" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-peter-1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4", "display": "Blood pressure panel" }] },
+        "subject": { "reference": "urn:uuid:4c6b5af0-9a8c-4b9d-9d5a-111111111111" },
+        "effectiveDateTime": "2025-07-01T09:30:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6", "display": "Systolic" }] }, "valueQuantity": { "value": 138, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4", "display": "Diastolic" }] }, "valueQuantity": { "value": 86, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-peter-2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:4c6b5af0-9a8c-4b9d-9d5a-111111111111" },
+        "effectiveDateTime": "2025-09-10T10:00:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 142, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 88, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-peter-3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:4c6b5af0-9a8c-4b9d-9d5a-111111111111" },
+        "effectiveDateTime": "{{$isoTimestamp}}",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 146, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 92, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+
+    /* Ellen Bogen */
+    {
+      "fullUrl": "urn:uuid:obs-ellen-1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4", "display": "Blood pressure panel" }] },
+        "subject": { "reference": "urn:uuid:753b2d3c-2c0e-4d5a-9d5a-222222222222" },
+        "effectiveDateTime": "2025-06-15T08:15:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 148, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 90, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-ellen-2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:753b2d3c-2c0e-4d5a-9d5a-222222222222" },
+        "effectiveDateTime": "2025-09-30T08:15:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 150, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 94, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-ellen-3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:753b2d3c-2c0e-4d5a-9d5a-222222222222" },
+        "effectiveDateTime": "{{$isoTimestamp}}",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 144, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 90, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-anne-1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:0a7c6bb2-0a2a-4a98-9b0f-333333333333" },
+        "effectiveDateTime": "2025-05-10T07:45:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 132, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 80, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-anne-2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:0a7c6bb2-0a2a-4a98-9b0f-333333333333" },
+        "effectiveDateTime": "2025-08-20T07:45:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 134, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 82, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-anne-3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:0a7c6bb2-0a2a-4a98-9b0f-333333333333" },
+        "effectiveDateTime": "{{$isoTimestamp}}",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 130, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 80, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-nora-1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:e0a8d6c2-4f0f-4a14-9f2a-555555555555" },
+        "effectiveDateTime": "2025-04-05T11:10:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 162, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 100, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-nora-2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:e0a8d6c2-4f0f-4a14-9f2a-555555555555" },
+        "effectiveDateTime": "2025-07-25T11:10:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 166, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 102, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-nora-3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:e0a8d6c2-4f0f-4a14-9f2a-555555555555" },
+        "effectiveDateTime": "{{$isoTimestamp}}",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 160, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 98, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-reiner-1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:5a1d9a2c-8b6b-4a3d-8a7e-666666666666" },
+        "effectiveDateTime": "2025-02-12T09:00:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 126, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 76, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-reiner-2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:5a1d9a2c-8b6b-4a3d-8a7e-666666666666" },
+        "effectiveDateTime": "2025-06-18T09:00:00Z",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 128, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 78, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-reiner-3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:5a1d9a2c-8b6b-4a3d-8a7e-666666666666" },
+        "effectiveDateTime": "{{$isoTimestamp}}",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 130, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 80, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-theo-1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:2f1c3e6d-3a5b-4a7f-8d9e-777777777777" },
+        "effectiveDateTime": "{{$isoTimestamp}}",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 140, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 88, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-anna-1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": { "coding": [{ "system": "http://loinc.org", "code": "55284-4" }] },
+        "subject": { "reference": "urn:uuid:1b9a6c2d-7a0c-4e9f-9b8e-888888888888" },
+        "effectiveDateTime": "{{$isoTimestamp}}",
+        "component": [
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8480-6" }] }, "valueQuantity": { "value": 122, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } },
+          { "code": { "coding": [{ "system": "http://loinc.org", "code": "8462-4" }] }, "valueQuantity": { "value": 76, "unit": "mmHg", "system": "http://unitsofmeasure.org", "code": "mm[Hg]" } }
+        ]
+      },
+      "request": { "method": "POST", "url": "Observation" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-ellen-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "medicationCodeableConcept": { "text": "Lisinopril 10mg tablet" },
+        "subject": { "reference": "urn:uuid:753b2d3c-2c0e-4d5a-9d5a-222222222222" },
+        "effectivePeriod": { "start": "2024-11-01", "end": "{{$isoTimestamp}}" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-anne-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "medicationCodeableConcept": { "text": "Metformin 500mg tablet" },
+        "subject": { "reference": "urn:uuid:0a7c6bb2-0a2a-4a98-9b0f-333333333333" },
+        "effectivePeriod": { "start": "2024-10-12", "end": "{{$isoTimestamp}}" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-nora-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "completed",
+        "medicationCodeableConcept": { "text": "Amlodipin 5mg" },
+        "subject": { "reference": "urn:uuid:e0a8d6c2-4f0f-4a14-9f2a-555555555555" },
+        "effectivePeriod": { "start": "2024-08-01", "end": "2025-02-01" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:med-reiner-1",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "active",
+        "medicationCodeableConcept": { "text": "Atorvastatin 20mg" },
+        "subject": { "reference": "urn:uuid:5a1d9a2c-8b6b-4a3d-8a7e-666666666666" },
+        "effectivePeriod": { "start": "2025-01-10", "end": "{{$isoTimestamp}}" }
+      },
+      "request": { "method": "POST", "url": "MedicationStatement" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-ellen-htn",
+      "resource": {
+        "resourceType": "Condition",
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "38341003", "display": "Hypertensive disorder" }] },
+        "subject": { "reference": "urn:uuid:753b2d3c-2c0e-4d5a-9d5a-222222222222" },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-reiner-htn",
+      "resource": {
+        "resourceType": "Condition",
+        "code": { "coding": [{ "system": "http://snomed.info/sct", "code": "38341003", "display": "Hypertensive disorder" }] },
+        "subject": { "reference": "urn:uuid:5a1d9a2c-8b6b-4a3d-8a7e-666666666666" },
+        "onsetDateTime": "2019-06-20"
+      },
+      "request": { "method": "POST", "url": "Condition" }
+    }
+  ]
+}
