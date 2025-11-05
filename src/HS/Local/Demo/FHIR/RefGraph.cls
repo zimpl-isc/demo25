@@ -28,8 +28,7 @@ ClassMethod OnPage() As %Status
   </head><body>
   <header>
     <h2 style="margin:0">FHIR Reference Graph</h2>
-    <div id="hint">Die Parameter in der URL werden an <code>Demo.FHIR.Utils.cls</code> weitergereicht.
-      Beispiel: <span class="badge">?id=3</span></div>
+    <div id="log"></div>
   </header>
   <div id="controls">
     <button id="fit">Fit</button>
@@ -38,7 +37,6 @@ ClassMethod OnPage() As %Status
     <span id="msg" style="color:#b00020"></span>
   </div>
   <div id="graph"></div>
-  <div id="log"></div>
   
   <script type="text/javascript">
     (async ()=>{

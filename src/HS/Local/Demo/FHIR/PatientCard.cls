@@ -121,7 +121,7 @@ ClassMethod OnPage() As %Status
     const srcEl = document.getElementById("src");
     const msgEl = document.getElementById("msg");
 
-    const proxy = `HS.Local.Demo.FHIR.Utils.cls?p=Patient/${encodeURIComponent(id)}/$everything&_count=200`;
+    const proxy = `HS.Local.Demo.FHIR.Utils.cls?p=Patient/${encodeURIComponent(id)}/$everything`;
     srcEl.textContent = "Quelle: " + proxy;
 
     const esc = s => {

@@ -46,7 +46,7 @@ ClassMethod OnPage() As %Status
       {
         "title": "JSON Tree",
         "desc": "FHIR-Bundle als aufklappbarer Baum (details/summary).",
-        "href": "/HS.Local.Demo.FHIR.TreeView.cls?p=Patient/2/$everything&_count=100",
+        "href": "/HS.Local.Demo.FHIR.TreeView.cls?p=Patient/2/$everything",
         "tags": ["NoLib","Bundle","Inhalt","Debug"]
       },
       {

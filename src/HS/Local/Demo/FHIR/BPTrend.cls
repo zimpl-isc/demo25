@@ -19,11 +19,36 @@ ClassMethod OnPage() As %Status
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/luxon@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1"></script>
-  <style>body{font-family:system-ui;padding:20px}#w{max-width:820px}.m{color:#666}</style>
+  <style>
+    body {
+      font-family: system-ui;
+      padding: 20px;
+      margin: 0;
+    }
+
+    /* center the whole block and give it breathing room */
+    #w {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* chart area */
+    #c {
+      display: block;
+      margin: 20px auto;
+      width: 100%;          /* let it fill the container width */
+      height: 400px;        /* reasonable visible height */
+    }
+
+    .m { color:#666; }
+  </style>
+
+
   </head><body><div id="w">
     <h2>Blutdruck-Trend</h2>
     <p class="m">Patient: #(id)#</p>
-    <canvas id="c" height="120"></canvas>
+    <canvas id="c"></canvas>
     <div id="msg" class="m"></div>
   </div>
 
@@ -31,7 +56,7 @@ ClassMethod OnPage() As %Status
   (async ()=>{
     try{
       const id = new URL(location.href).searchParams.get("id") || #( $zcvt(id,"O","JSON") )#;
-      const url = `HS.Local.Demo.FHIR.Utils.cls?p=Observation&patient=${encodeURIComponent(id)}&code=55284-4&_sort=date&_count=200`;
+      const url = `HS.Local.Demo.FHIR.Utils.cls?p=Observation&patient=${encodeURIComponent(id)}&code=55284-4&_sort=date`;
       const r = await fetch(url,{cache:"no-store"});
       if(!r.ok) throw new Error("HTTP "+r.status);
       const bundle = await r.json();

@@ -32,7 +32,7 @@ ClassMethod OnPage() As %Status
   (async ()=>{
     try{
       const id = new URL(location.href).searchParams.get("id") || #( $zcvt(id,"O","JSON") )#;
-      const url = `HS.Local.Demo.FHIR.Utils.cls?p=MedicationStatement&subject=Patient/${encodeURIComponent(id)}&_sort=-effective&_count=100`;
+      const url = `HS.Local.Demo.FHIR.Utils.cls?p=MedicationStatement&subject=Patient/${encodeURIComponent(id)}&_sort=-effective`;
       const r = await fetch(url,{cache:"no-store"});
       if(!r.ok) throw new Error("HTTP "+r.status);
       const bundle = await r.json();

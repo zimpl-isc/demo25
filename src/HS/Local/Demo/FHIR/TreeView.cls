@@ -22,8 +22,8 @@ ClassMethod OnPage() As %Status
     #src{color:var(--muted);font-size:12px}
     #controls button{padding:6px 10px;border:1px solid var(--b);background:#fafafa;border-radius:6px;cursor:pointer}
     #controls input[type="text"]{padding:6px 8px;border:1px solid var(--b);border-radius:6px;min-width:260px}
-    main{height:calc(100% - 60px);display:flex;flex-direction:column}
-    #tree{padding:12px 16px;overflow:auto;flex:1; margin-left:2em;}
+    main{height:calc(100% - 100px);display:flex;flex-direction:column}
+    #tree{padding:1em 2em;overflow:auto;flex:1; margin-left:2em;}
     details{padding-left:12px;border-left:1px dashed #ddd;margin:4px 0}
     summary{cursor:pointer;list-style:none}
     summary::-webkit-details-marker{display:none}

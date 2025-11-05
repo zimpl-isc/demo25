@@ -32,9 +32,6 @@ ClassMethod OnPage() As %Status
     .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 12px}
     .controls input,.controls select{padding:6px 8px;border:1px solid var(--b);border-radius:8px}
     .controls label{display:inline-flex;align-items:center;gap:6px}
-    #timeline{height:70vh;border:1px solid var(--b);border-radius:10px}
-    .legend{font-size:12px;color:#333;display:flex;gap:10px;flex-wrap:wrap;margin:6px 0}
-    .chip{border:1px solid var(--b);border-radius:999px;padding:2px 8px;background:#fafafa}
   </style>
   </head><body>
   <header>
@@ -59,11 +56,6 @@ ClassMethod OnPage() As %Status
       <span id="msg" class="muted"></span>
     </div>
 
-    <div class="legend">
-      <span class="chip">Encounters = Zeitspannen</span>
-      <span class="chip">Medications = Zeitspannen</span>
-      <span class="chip">Observations = Punkte</span>
-    </div>
 
     <div id="timeline"></div>
   </div>
@@ -71,7 +63,7 @@ ClassMethod OnPage() As %Status
   <script type="text/javascript">
   (async ()=>{
     const id = new URL(location.href).searchParams.get("id") || String(#(id)#);
-    const proxy = `HS.Local.Demo.FHIR.Utils.cls?p=Patient/${encodeURIComponent(id)}/$everything&_count=500`;
+    const proxy = `HS.Local.Demo.FHIR.Utils.cls?p=Patient/${encodeURIComponent(id)}/$everything`;
     document.getElementById("src").textContent = "Quelle: " + proxy;
 
     const showEnc = document.getElementById("showEnc");
@@ -82,11 +74,10 @@ ClassMethod OnPage() As %Status
     const fitBtn = document.getElementById("fit");
     const msg = document.getElementById("msg");
 
-    const esc = s => String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+    const esc = s => String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;","&gt;":"&gt;"}[c]));
     const get = (o,p) => p.split(".").reduce((a,k)=>a?.[k],o);
     const parseDate = (s) => {
       if (!s) return null;
-      // Accept yyyy, yyyy-mm, yyyy-mm-dd, or full ISO timestamps
       try { const d = new Date(s); return isNaN(d) ? null : d; } catch { return null; }
     };
 
@@ -97,7 +88,6 @@ ClassMethod OnPage() As %Status
     function labelObservation(o){
       const code = get(o,"code.coding.0.code") || "";
       const disp = get(o,"code.text") || get(o,"code.coding.0.display") || code;
-      // Top-level value or component summary
       let val = "";
       if (o.valueQuantity?.value!=null) val = `${o.valueQuantity.value} ${o.valueQuantity.unit||""}`.trim();
       else if (Array.isArray(o.component)) {
@@ -192,7 +182,6 @@ ClassMethod OnPage() As %Status
           if (code && it._code !== code) return false;
           if (tneedle && !( (it.content||"").toLowerCase().includes(tneedle) || (it._value||"").includes(tneedle) )) return false;
         } else if (tneedle){
-          // allow text filter to affect all
           const hay = (it.content||"").toLowerCase() + " " + (it.title||"").toLowerCase();
           if (!hay.includes(tneedle)) return false;
         }
@@ -225,7 +214,7 @@ ClassMethod OnPage() As %Status
         const ds = new vis.DataSet(subset);
         timeline.setItems(ds);
         msg.textContent = `${subset.length} Items`;
-        // keep a reference for fit
+        // keep a reference for fit & selection lookup
         timeline._currentItems = ds;
       }
       showEnc.onchange = redraw;
@@ -239,6 +228,22 @@ ClassMethod OnPage() As %Status
         const arr = ds.get();
         if (arr.length) timeline.fit();
       };
+
+      // --- NEW: log resource on click/select ---
+      function getCurrentDataSet(){
+        return timeline._currentItems || items;
+      }
+
+      timeline.on("select", (props)=>{
+        const id = props.items?.[0];
+        if(!id) return;
+        const ds = getCurrentDataSet();
+        const it = ds.get(id);
+        if (it){
+          //console.log("[Timeline] Selected item:", it);
+          if (it._raw) console.log("[Timeline] FHIR resource:", it._raw);
+        }
+      });
 
       // initial
       redraw();
