@@ -13,12 +13,14 @@ Class HS.Local.Demo.FHIR.Utils Extends %CSP.Page
 /// Instanzname vom FHIR Repository
 Parameter FhirRepo = "/csp/healthshare/staging/fhir/r4";
 
+/// Helper method which returns the value for a url parameter in the current request, with a fallback to a default value
 ClassMethod UrlParam(pName As %String, pDefault As %String = "") As %String
 {
   set v = %request.Get(pName)
   quit $select(v="":pDefault, 1:v)
 }
 
+/// Overrides same method from superclass; entrypoint for web requests
 ClassMethod OnPage() As %Status
 {
     set tRequestPath = "/"_$get(%request.Data("p",1), "Observation")
@@ -73,6 +75,7 @@ ClassMethod GetFHIR(pPath = "/Observation", pQueryString = "", Output pResponse 
     return $$$OK
 }
 
+/// Helper method for demo pages
 ClassMethod Footer()
 {
     &html<<footer style="font-size:12px;color:#777;margin-top:20px;text-align:center;width:100%;">

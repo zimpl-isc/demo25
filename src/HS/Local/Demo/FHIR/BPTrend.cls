@@ -41,7 +41,7 @@ ClassMethod OnPage() As %Status
       height: 400px;        /* reasonable visible height */
     }
 
-    .m { color:#666; }
+    .m { color:#678; }
   </style>
 
 

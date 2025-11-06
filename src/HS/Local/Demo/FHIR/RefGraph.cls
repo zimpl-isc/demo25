@@ -14,8 +14,10 @@ ClassMethod OnPage() As %Status
 {
   &html<<!doctype html><html><head><meta charset="utf-8">
   <title>FHIR Reference Graph</title>
+
   <script src="https://unpkg.com/vis-network@9.1.6/dist/vis-network.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/vis-network@9.1.6/styles/vis-network.min.css"/>
+  
   <style>
     body{font-family:system-ui,Segoe UI,Arial;margin:0}
     header{padding:12px 16px;border-bottom:1px solid #eee}
@@ -25,6 +27,7 @@ ClassMethod OnPage() As %Status
     #log{padding:8px 16px;color:#666;font-size:12px}
     .badge{display:inline-block;padding:2px 6px;border-radius:999px;border:1px solid #ccc;background:#fafafa;font-size:12px}
   </style>
+
   </head><body>
   <header>
     <h2 style="margin:0">FHIR Reference Graph</h2>
@@ -36,6 +39,7 @@ ClassMethod OnPage() As %Status
     <span id="counts" class="badge">0 Knoten · 0 Kanten</span>
     <span id="msg" style="color:#b00020"></span>
   </div>
+  
   <div id="graph"></div>
   
   <script type="text/javascript">

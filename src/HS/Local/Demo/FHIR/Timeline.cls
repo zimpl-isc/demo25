@@ -56,8 +56,8 @@ ClassMethod OnPage() As %Status
       <span id="msg" class="muted"></span>
     </div>
 
-
     <div id="timeline"></div>
+    
   </div>
 
   <script type="text/javascript">
